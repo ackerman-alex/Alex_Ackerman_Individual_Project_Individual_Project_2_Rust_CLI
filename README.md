@@ -117,3 +117,5 @@ Load data also expects the same specific schema, see if you can modify this code
 * Tests! There is an example of Rust testing in the add crate from the template. I only have so much free time so, naturally, testing has fallen by the wayside. See if you can test some of the library functions.
 
 ## Binary Download Link
+
+# REMOVE
