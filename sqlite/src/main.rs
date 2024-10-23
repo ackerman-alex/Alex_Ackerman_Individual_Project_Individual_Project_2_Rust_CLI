@@ -43,8 +43,6 @@ enum Commands {
     },
     ///Pass a table name, set clause, and condition to Update operations
     /// sqlite -u table_name set_clause condition
-    /// Example sqlite -u spotify_tracks "track_name = 'New Track Name', artist = 'New Artist', in_spotify_chart = 150" "music_id = 3"
-
     #[command(alias = "u", short_flag = 'u')]
     Update {
         table_name: String,
