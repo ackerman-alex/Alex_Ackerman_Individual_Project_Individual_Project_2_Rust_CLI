@@ -4,7 +4,7 @@
 
 ## Setup
 
-This project is an expansion on Rust CLI tool developed in the [Rust_SQLite Repository](https://github.com/johncoogan53/Rust_SQLite.git). The repository contains a base CLI tool, how to set up a project to use the CLI tool, as well as some relevant notes about Rust.
+This project is an expansion on the Rust SQLite CLI tool developed in the [Rust_SQLite Repository](https://github.com/johncoogan53/Rust_SQLite.git). The repository contains a base CLI tool, how to set up a project to use the CLI tool, as well as some relevant notes about Rust.
 
 Additionally, the tool was modified to take a filtered version of the top Spotify songs of 2023. The dataset contains the Music ID, Track Name, Artist, and Spotify Chart Ranking.
 
