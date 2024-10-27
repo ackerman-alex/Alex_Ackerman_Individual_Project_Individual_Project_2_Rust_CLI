@@ -4,6 +4,10 @@
 
 # Rust SQLite CLI Tool
 
+## Video Walkthrough
+
+[Project walkthrough on Youtube](https://youtu.be/65KggmFHpQI)
+
 ## Setup
 
 This project is an expansion on the Rust SQLite CLI tool developed in the [Rust_SQLite Repository](https://github.com/johncoogan53/Rust_SQLite.git). The repository contains a base CLI tool, how to set up a project to use the CLI tool, as well as some relevant notes about Rust.
@@ -45,7 +49,33 @@ Notable Gaps:
 
 * The tool is currently built for the Spotify data located in the `data` folder.
 
-![alt text](readme_images/Query_in_lib.png)
+```Rust
+// Read data from the table
+pub fn query_exec(conn: &Connection, query_string: &str) -> Result<()> {
+    // Prepare the query and iterate over the rows returned
+    let mut stmt = conn.prepare(query_string)?;
+
+    // Use query_map to handle multiple rows
+    let rows = stmt.query_map([], |row| {
+        let music_id: i64 = row.get(0)?;
+        let track_name: String = row.get(1)?;
+        let artist: String = row.get(2)?;
+        let in_spotify_charts: i64 = row.get(3)?;
+        Ok((music_id, track_name, artist, in_spotify_charts))
+    })?;
+
+    // Iterate over the rows and print the results
+    for row in rows {
+        let (music_id, track_name, artist, in_spotify_charts) = row?;
+        println!(
+            "Music ID: {}, Track Name: {}, Artist: {}, In Spotify Charts: {}",
+            music_id, track_name, artist, in_spotify_charts
+        );
+    }
+
+    Ok(())
+}
+```
 
 This is partially by design as mentioned in the reference template "there are ways to make this more generalized but Rust prefers for you to be explicit about what you expect, this is part of its safety benefits." 
 
