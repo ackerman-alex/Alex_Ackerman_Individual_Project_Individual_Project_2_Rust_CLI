@@ -1,4 +1,5 @@
-[![CI](https://github.com/nogibjj/Alex_Ackerman_Mini_Project_7_Rust_CLI/actions/workflows/CI.yml/badge.svg)](https://github.com/nogibjj/Alex_Ackerman_Mini_Project_7_Rust_CLI/actions/workflows/CI.yml)
+
+# Alex_Ackerman_Individual_Project_2_Rust_CLI
 
 # Rust SQLite CLI Tool
 
@@ -7,6 +8,29 @@
 This project is an expansion on the Rust SQLite CLI tool developed in the [Rust_SQLite Repository](https://github.com/johncoogan53/Rust_SQLite.git). The repository contains a base CLI tool, how to set up a project to use the CLI tool, as well as some relevant notes about Rust.
 
 Additionally, the tool was modified to take a filtered version of the top Spotify songs of 2023. The dataset contains the Music ID, Track Name, Artist, and Spotify Chart Ranking.
+
+## Data
+
+The dataset used in this project is a modified version of the original data found on the [RunCHIRON repository](https://github.com/RunCHIRON/dataset/blob/main/Spotify_2023.csv). The original dataset was reduced to the columns `music_id`, `track_name`, `artist`, and `in_spotify_charts`.
+
+## Use of Large Language Models
+
+LLMs are particularly useful at translating between coding languages and for adding small features to an exsiting script. For this project I was able to take the script in main.rs and utilize ChatGPT to add an update function.
+
+When I was having challenges reading in my dataset, ChatGPT help me add error handling code to see where my code was failing. It should be noted that the solution provided was not perfect and required some trial and error to figure out. Below depicts the error handling solutions I incorporated into my lib.rs.
+
+```Rust
+    // Loop that expects the specific schema
+    for result in rdr.records() {
+        let record = result?;
+        let music_id: i64 = record[0].parse().expect("Failed to parse music_id");
+        let track_name: &str = &record[1]; //.parse().expect("Failed to parse track_name");
+        let artist: &str = &record[2]; //.parse().expect("Failed to parse artist");
+        let in_spotify_charts: i64 = record[3].parse().expect("Failed to parse in_spotify_charts");
+
+        conn.execute(&insert_query, params![music_id, track_name, artist, in_spotify_charts])?;
+    }
+```
 
 ## Project Breakdown
 
