@@ -1,3 +1,4 @@
+[![CI](https://github.com/ackerman-alex/Alex_Ackerman_Individual_Project_Individual_Project_2_Rust_CLI/actions/workflows/CI.yml/badge.svg)](https://github.com/ackerman-alex/Alex_Ackerman_Individual_Project_Individual_Project_2_Rust_CLI/actions/workflows/CI.yml)
 
 # Alex_Ackerman_Individual_Project_2_Rust_CLI
 
@@ -54,4 +55,4 @@ Similarly Create, Load, and Update expect the same specific schema.
 
 ## Binary Download Link
 
-https://github.com/nogibjj/Alex_Ackerman_Mini_Project_7_Rust_CLI/actions/runs/11489225179/artifacts/2096228477
+https://github.com/ackerman-alex/Alex_Ackerman_Individual_Project_Individual_Project_2_Rust_CLI/actions/runs/11543233644/artifacts/2109593364
